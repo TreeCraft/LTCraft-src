@@ -1,0 +1,18 @@
+name: LTReport
+main: LTReport\Main
+version: 1.0.0
+api: [2.0.0]
+author: SenderFan
+load: POSTWORLD
+commands:
+ report:
+  permission: report.all
+ description: LTCraft举报系统
+ getlist:
+  permission: getlist.admin
+ description: 获取举报列表
+ permissions:
+ report.all:
+  default: true
+ getlist.admin:
+ default: op
