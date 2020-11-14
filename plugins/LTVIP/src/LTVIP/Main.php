@@ -67,6 +67,7 @@ class Main extends PluginBase implements Listener
     public function onCommand(CommandSender $sender, Command $command, $label, array $args)
     {
 		if($command=="mtps"){
+			if(!$sender-isOp())return Sender->sendMessage('§l§d[提示]权限不足');
 			if($sender->getForceTP()){
 				$sender->setForceTP(false);
 				$sender->sendMessage(self::HEAD.'a关闭被拉功能！');
@@ -359,7 +360,7 @@ class Main extends PluginBase implements Listener
         $bu = new SetEntityDataPacket()	;
         $bu->eid = $player->getId();
         $bu->metadata = [
-			Entity::DATA_INTERACTIVE_TAG => [Entity::DATA_TYPE_STRING, '§l§e喂养/骑乘...']
+			Entity::DATA_INTERACTIVE_TAG => [Entity::DATA_TYPE_STRING, '§l§e选择其目标以喂养或骑乘']
 		];
         $player->dataPacket($bu);
     }
